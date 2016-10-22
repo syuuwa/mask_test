@@ -27,7 +27,7 @@ public class player_moved : MonoBehaviour {
 
 		if (ClickPosition.x >= 80 && ClickPosition.x <= 170)
 		{
-			Debug.Log(ClickPosition.x);
+			//Debug.Log(ClickPosition.x);
 			Rb.AddForce(0, speed, 0, ForceMode.Impulse);
 		}
 		else if (ClickPosition.x > 170)

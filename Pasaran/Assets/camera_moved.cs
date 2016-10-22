@@ -2,25 +2,20 @@
 using System.Collections;
 
 public class camera_moved : MonoBehaviour {
-	public Transform moveCam;
+	public Transform player;
 	public float smoothing = 0.5f;
 	Vector3 offset;
 	// Use this for initialization
 	void Start () {
-		offset = moveCam.transform.position - transform.position;
+		offset = transform.position + player.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-	}
+		Vector3 newPosition = player.transform.position - offset;
+		newPosition.z = -10;
 
-	void OnBecameInvisible(){
-		Debug.Log(offset.z);
-		Vector3 newPosition = moveCam.transform.position;
-		newPosition.x = transform.position.x + offset.x;
-		newPosition.y = transform.position.y + offset.y;
-		newPosition.z = transform.position.z + offset.z;
-		moveCam.transform.position = Vector3.Lerp(newPosition,transform.position, smoothing * Time.deltaTime);
+		transform.position = Vector3.Lerp(transform.position, newPosition, smoothing * Time.deltaTime);
 	}
 }
