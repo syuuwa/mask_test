@@ -8,8 +8,8 @@ public class player_flick_moved : MonoBehaviour
 	private bool isClick;
 	private Vector3 touchStartPos;
 	private Vector3 touchEndPos;
-	private int direction;
-	public Rigidbody rb;
+	private ParticleSystem ps;
+	private Rigidbody rb;
 	public float speed;
 	public float intervalTime;
 
@@ -17,6 +17,7 @@ public class player_flick_moved : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		ps = GetComponent<ParticleSystem>();
 	}
 
 	public void Update()
@@ -54,13 +55,13 @@ public class player_flick_moved : MonoBehaviour
 					{
 						Debug.Log("Flick : Right");
 						rb.AddForce(speed, 0.5f * speed, 0, ForceMode.Impulse);
-						direction = 6;
+						ps.Play();
 					}
 					else
 					{
 						Debug.Log("Flick : Left");
 						rb.AddForce(-1 * speed, 0.5f * speed, 0, ForceMode.Impulse);
-						direction = 4;
+						ps.Play();
 					}
 				}
 				else if (Mathf.Abs(directionX) < Mathf.Abs(directionY))
@@ -69,12 +70,11 @@ public class player_flick_moved : MonoBehaviour
 					{
 						Debug.Log("Flick : Up");
 						rb.AddForce(0, speed, 0, ForceMode.Impulse);
-						direction = 8;
+						ps.Play();
 					}
 					else
 					{
 						Debug.Log("Flick : Down");
-						direction = 2;
 					}
 				}
 				else
@@ -86,14 +86,12 @@ public class player_flick_moved : MonoBehaviour
 			else
 			{
 				Debug.Log("Long Touch");
-				direction = 5;
 			}
 		}
 	}
 
 	public void FlickOff()
 	{
-		direction = 5;
 		isFlick = false;
 		//Debug.Log("iyan");
 	}

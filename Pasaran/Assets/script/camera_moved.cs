@@ -7,6 +7,8 @@ public class camera_moved : MonoBehaviour {
 	public int posX;
 	public int posY;
 	Vector3 offset;
+	Vector3 newPosition;
+
 	// Use this for initialization
 	void Start () {
 		offset = transform.position + player.transform.position;
@@ -15,7 +17,7 @@ public class camera_moved : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		Vector3 newPosition = player.transform.position - offset;
+		newPosition = player.transform.position - offset;
 		newPosition.z = posY;
 		newPosition.x = posX;
 
