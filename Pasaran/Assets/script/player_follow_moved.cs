@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class camera_moved : MonoBehaviour {
+public class player_follow_moved : MonoBehaviour {
 	public Transform player;
 	public float smoothing = 0.5f;
-	public int posX;
-	public int posY;
+	public float posX;
+	public float posZ;
 	Vector3 offset;
 	Vector3 newPosition;
 
@@ -18,7 +18,7 @@ public class camera_moved : MonoBehaviour {
 	void Update () {
 		
 		newPosition = player.transform.position - offset;
-		newPosition.z = posY;
+		newPosition.z = posZ;
 		newPosition.x = posX;
 
 		transform.position = Vector3.Lerp(transform.position, newPosition, smoothing * Time.deltaTime);
