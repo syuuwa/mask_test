@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class game_stop : MonoBehaviour {
+public class game_back : MonoBehaviour {
 
 	private GameObject pauseCanvas;
 
 	// Use this for initialization
 	void Start () {
 		pauseCanvas = GameObject.Find("PauseCanvas");
-		pauseCanvas.GetComponent<Canvas>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -16,9 +15,9 @@ public class game_stop : MonoBehaviour {
 	
 	}
 
-	public void GameStop(){
-
-		Time.timeScale = 0;
-		pauseCanvas.GetComponent<Canvas>().enabled = true;
+	public void GameBack()
+	{
+		Time.timeScale = 1;
+		pauseCanvas.GetComponent<Canvas>().enabled = false;
 	}
 }

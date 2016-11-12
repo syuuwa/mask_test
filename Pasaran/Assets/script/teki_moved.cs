@@ -14,7 +14,7 @@ public class teki_moved : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 		if(transform.position.x >= moveAreaRight){
 			switchMoveAim = true;

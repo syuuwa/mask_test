@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class player_follow_moved : MonoBehaviour {
+
 	public Transform player;
 	public float smoothing = 0.5f;
 	public float posX;
