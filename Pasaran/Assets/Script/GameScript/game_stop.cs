@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class game_back : MonoBehaviour {
-
+public class game_stop : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +14,9 @@ public class game_back : MonoBehaviour {
 	
 	}
 
-	public void GameBack()
-	{
-		Time.timeScale = 1;
-		SceneManager.UnloadScene("PauseDialog");
+	public void GameStop(){
+
+		Time.timeScale = 0;
+		SceneManager.LoadScene("PauseDialog", LoadSceneMode.Additive);
 	}
 }

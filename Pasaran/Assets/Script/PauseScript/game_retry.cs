@@ -17,7 +17,6 @@ public class game_retry : MonoBehaviour {
 	public void GameRetry()
 	{
 		Time.timeScale = 1;
-		SceneManager.LoadScene("Stage");
-		SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+		SceneManager.LoadScene("GameScene");
 	}
 }
